@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>June Harper Case | Investigation Database</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-symbol">JH</span>
+            <div>
+                <strong>JH // CASE ARCHIVE</strong>
+                <small>INVESTIGATION DATABASE</small>
+            </div>
+        </div>
+
+        <span class="confidential">CONFIDENTIAL</span>
+    </header>
+
+    <main class="container">
+
+        <!-- HOME PAGE -->
+        <section id="home">
+
+            <div class="breadcrumb">CASE ARCHIVE / OVERVIEW</div>
+
+            <div class="page-heading">
+                <div>
+                    <p class="eyebrow">CASE FILE: JH-052026</p>
+                    <h1>June Harper</h1>
+                    <p class="subtitle">
+                        Investigation into the death of June Harper.
+                    </p>
+                </div>
+
+                <span class="case-status">UNDER INVESTIGATION</span>
+            </div>
+
+            <div class="case-info">
+                <div>
+                    <span class="info-label">CASE REFERENCE</span>
+                    <strong>JH-052026</strong>
+                </div>
+
+                <div>
+                    <span class="info-label">INCIDENT DATE</span>
+                    <strong>20 MAY 2026</strong>
+                </div>
+
+                <div>
+                    <span class="info-label">LOCATION</span>
+                    <strong>JUNE HARPER'S RESIDENCE</strong>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">EVIDENCE DATABASE</p>
+                    <h2>Available Records</h2>
+                </div>
+
+                <span class="record-count">04 CATEGORIES</span>
+            </div>
+
+            <div class="dashboard">
+
+                <button class="evidence-card" onclick="openSection('photos')">
+                    <span class="card-number">01</span>
+                    <span class="card-icon">▧</span>
+                    <h3>Photographic Evidence</h3>
+                    <p>Recovered photographs and social media records.</p>
+                    <span class="view-link">ACCESS FILES →</span>
+                </button>
+
+                <button class="evidence-card" onclick="openSection('documents')">
+                    <span class="card-number">02</span>
+                    <span class="card-icon">▤</span>
+                    <h3>Official Documents</h3>
+                    <p>Police reports and investigation records.</p>
+                    <span class="view-link">ACCESS FILES →</span>
+                </button>
+
+                <button class="evidence-card" onclick="openSection('diary')">
+                    <span class="card-number">03</span>
+                    <span class="card-icon">▧</span>
+                    <h3>Personal Records</h3>
+                    <p>Recovered personal diary entries.</p>
+                    <span class="view-link">ACCESS FILES →</span>
+                </button>
+
+                <button class="evidence-card" onclick="openSection('messages')">
+                    <span class="card-number">04</span>
+                    <span class="card-icon">▤</span>
+                    <h3>Communications</h3>
+                    <p>Private conversations and message records.</p>
+                    <span class="view-link">ACCESS FILES →</span>
+                </button>
+
+            </div>
+
+            <div class="notice">
+                <strong>NOTICE</strong>
+                <p>
+                    All records contained in this database are confidential
+                    and are intended for investigative purposes only.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- EVIDENCE CATEGORY PAGE -->
+        <section id="evidence-page" hidden>
+
+            <button class="back-button" onclick="goHome()">
+                ← BACK TO CASE ARCHIVE
+            </button>
+
+            <div class="breadcrumb">
+                CASE ARCHIVE / <span id="current-category"></span>
+            </div>
+
+            <div class="page-heading">
+                <div>
+                    <p class="eyebrow">EVIDENCE DATABASE</p>
+                    <h1 id="page-title">Evidence Files</h1>
+                    <p class="subtitle" id="page-description"></p>
+                </div>
+
+                <span class="case-status">JH-052026</span>
+            </div>
+
+            <div id="file-list" class="file-list"></div>
+
+        </section>
+
+
+        <!-- INDIVIDUAL EVIDENCE VIEWER -->
+        <section id="viewer-page" hidden>
+
+            <button class="back-button" onclick="backToFiles()">
+                ← BACK TO EVIDENCE FILES
+            </button>
+
+            <div class="breadcrumb">
+                CASE FILES / <span id="viewer-category"></span>
+            </div>
+
+            <div class="page-heading">
+                <div>
+                    <p class="eyebrow">EVIDENCE RECORD</p>
+                    <h1 id="viewer-title">Evidence File</h1>
+                    <p class="subtitle" id="viewer-description"></p>
+                </div>
+
+                <span class="case-status">JH-052026</span>
+            </div>
+
+            <div class="evidence-viewer" id="evidence-content">
+                <!-- Evidence appears here -->
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>JH // CASE ARCHIVE</p>
+        <p>CONFIDENTIAL INVESTIGATION DATABASE · 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
