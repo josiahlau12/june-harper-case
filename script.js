@@ -24,11 +24,11 @@ const categories = {
 
                 items: [
                     {
-                        src: "evidence/images/Marcie Story.png",
+                        src: "evidence/images/Marcie Story.PNG",
                         caption: "Instagram Story — 20 May 2026"
                     },
                     {
-                        src: "evidence/images/Marcie-story.png",
+                        src: "evidence/images/Marcie-story.PNG",
                         caption: "Instagram Story — 17 May 2026"
                     }
                 ]
@@ -41,7 +41,7 @@ const categories = {
 
                 items: [
                     {
-                        src: "evidence/images/Danielle Story.png",
+                        src: "evidence/images/Danielle Story.PNG",
                         caption: "Instagram Story — 20 May 2026"
                     }
                 ]
@@ -54,7 +54,7 @@ const categories = {
 
                 items: [
                     {
-                        src: "evidence/images/Athena story .png",
+                        src: "evidence/images/Athena story .PNG",
                         caption: "Instagram Story — 20 May 2026"
                     }
                 ]
@@ -137,23 +137,23 @@ const categories = {
 
                 items: [
                     {
-                        src: "evidence/diary/Athena diary 15_5.png",
+                        src: "evidence/diary/Athena diary 15_5.PNG",
                         caption: "Diary Entry 01"
                     },
                     {
-                        src: "evidence/diary/Athena diary 16_5.png",
+                        src: "evidence/diary/Athena diary 16_5.PNG",
                         caption: "Diary Entry 02"
                     },
                     {
-                        src: "evidence/diary/Athena diary 17 May.png",
+                        src: "evidence/diary/Athena diary 17 May.PNG",
                         caption: "Diary Entry 03"
                     },
                     {
-                        src: "evidence/diary/Athena diary 18 May.png",
+                        src: "evidence/diary/Athena diary 18 May.PNG",
                         caption: "Diary Entry 04"
                     },
                     {
-                        src: "evidence/diary/Athena diary 18_4.png",
+                        src: "evidence/diary/Athena diary 18_4.PNG",
                         caption: "Diary Entry 05"
                     }
                 ]
@@ -184,7 +184,7 @@ const categories = {
                 name: "Danielle Karsh & Nancy",
                 description: "Recovered private conversation dated 20 May 2026.",
                 type: "image",
-                src: "evidence/images/Danielle Messages.png"
+                src: "evidence/images/Danielle Messages.PNG"
             }
 
         ]
