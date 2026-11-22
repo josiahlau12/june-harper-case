@@ -153,7 +153,7 @@ const categories = {
                         caption: "Diary Entry 04"
                     },
                     {
-                        src: "evidence/diary/Athena diary 18_4.PNG",
+                        src: "evidence/diary/Athena Diary 18_4.PNG",
                         caption: "Diary Entry 05"
                     }
                 ]
