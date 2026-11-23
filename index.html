@@ -9,6 +9,45 @@
 
 <body>
 
+    
+    <!-- PASSWORD ACCESS SCREEN -->
+    <section id="password-gate">
+        <div class="password-box">
+
+            <p class="eyebrow">JH // CASE ARCHIVE</p>
+
+            <h1>RESTRICTED ACCESS</h1>
+
+            <p>
+                This investigation database is confidential.
+                Enter the authorised access code to continue.
+            </p>
+
+            <form onsubmit="unlockSite(event)">
+
+                <input
+                    type="password"
+                    id="access-code"
+                    placeholder="ENTER ACCESS CODE"
+                    maxlength="10"
+                    autocomplete="off"
+                    required
+                >
+
+                <button type="submit">
+                    ACCESS DATABASE →
+                </button>
+
+            </form>
+
+            <p id="password-error"></p>
+
+            <p>JH-052026 // AUTHORISED PERSONNEL ONLY</p>
+
+        </div>
+    </section>
+
+
     <header class="topbar">
         <div class="brand">
             <span class="brand-symbol">JH</span>
