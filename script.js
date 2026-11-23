@@ -1,9 +1,157 @@
+
 // ==========================================
 // JUNE HARPER CASE — INVESTIGATION DATABASE
 // ==========================================
 
 
+// ==========================================
+// PASSWORD ACCESS
+// ==========================================
+
+const ACCESS_CODE = "91108";
+
+function unlockSite(event) {
+    event.preventDefault();
+
+    const input = document.getElementById("access-code");
+    const error = document.getElementById("password-error");
+
+    if (input.value === ACCESS_CODE) {
+        localStorage.setItem("jh_case_access", "granted");
+
+        document.getElementById("password-gate").hidden = true;
+        document.body.style.overflow = "auto";
+    } else {
+        error.textContent = "ACCESS DENIED — INVALID CODE";
+        input.value = "";
+        input.focus();
+    }
+}
+
+function setupPasswordGate() {
+    const gate = document.getElementById("password-gate");
+
+    if (!gate) return;
+
+    if (localStorage.getItem("jh_case_access") === "granted") {
+        gate.hidden = true;
+    } else {
+        document.body.style.overflow = "hidden";
+    }
+}
+
+
+// ==========================================
+// MOBILE PDF AND PASSWORD STYLES
+// ==========================================
+
+const additionalStyles = document.createElement("style");
+
+additionalStyles.textContent = `
+    #password-gate {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        background: #f5f6f7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        font-family: Arial, sans-serif;
+    }
+
+    #password-gate[hidden] {
+        display: none;
+    }
+
+    .password-box {
+        width: 100%;
+        max-width: 390px;
+        padding: 35px 25px;
+        background: white;
+        border: 1px solid #d9dee2;
+        text-align: center;
+    }
+
+    .password-box h1 {
+        font-size: 21px;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+    }
+
+    .password-box p {
+        color: #737b83;
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .password-box input {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 13px;
+        margin: 18px 0 10px;
+        border: 1px solid #cbd0d5;
+        font-size: 18px;
+        text-align: center;
+        letter-spacing: 5px;
+    }
+
+    .password-box button {
+        width: 100%;
+        padding: 13px;
+        background: #222a31;
+        color: white;
+        border: none;
+        cursor: pointer;
+        letter-spacing: 1px;
+    }
+
+    #password-error {
+        color: #b42318;
+        min-height: 18px;
+        margin-top: 12px;
+    }
+
+    .pdf-open-link {
+        display: block;
+        padding: 15px;
+        margin: 0 0 15px;
+        background: #222a31;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: 13px;
+        letter-spacing: 1px;
+    }
+
+    .evidence-pdf {
+        width: 100%;
+        height: 750px;
+        border: 1px solid #d9dee2;
+    }
+
+    @media (max-width: 700px) {
+        .evidence-pdf {
+            display: none;
+        }
+
+        .pdf-mobile-note {
+            display: block;
+            padding: 15px;
+            background: #f0f2f4;
+            color: #555;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+    }
+`;
+
+document.head.appendChild(additionalStyles);
+
+
+// ==========================================
 // ALL EVIDENCE FILES
+// ==========================================
 
 const categories = {
 
@@ -21,7 +169,6 @@ const categories = {
                 name: "Marcie Evans — Instagram",
                 description: "Recovered posts and stories from Marcie Evans.",
                 type: "gallery",
-
                 items: [
                     {
                         src: "evidence/images/Marcie Story.PNG",
@@ -38,7 +185,6 @@ const categories = {
                 name: "Danielle Karsh — Instagram",
                 description: "Recovered posts and stories from Danielle Karsh.",
                 type: "gallery",
-
                 items: [
                     {
                         src: "evidence/images/Danielle Story.PNG",
@@ -51,13 +197,26 @@ const categories = {
                 name: "Athena Liu — Instagram",
                 description: "Recovered posts and stories from Athena Liu.",
                 type: "gallery",
-
                 items: [
                     {
                         src: "evidence/images/Athena story .PNG",
                         caption: "Instagram Story — 20 May 2026"
                     }
                 ]
+            },
+
+            {
+                name: "Athena Liu — Identification Photograph",
+                description: "Photographic identification record of Athena Liu.",
+                type: "image",
+                src: "evidence/images/athena-photo.png"
+            },
+
+            {
+                name: "Marcie Evans' Brother — Identification Photograph",
+                description: "Photographic identification record of an individual connected to Marcie Evans.",
+                type: "image",
+                src: "evidence/images/brother-photo.png"
             }
 
         ]
@@ -90,30 +249,37 @@ const categories = {
 
             {
                 name: "Dispatch Call and Supplementary Report",
-                description: "Official transcript of dispatch call and report concerning statements of Athena Liu",
+                description: "Official transcript of dispatch call and report concerning statements of Athena Liu.",
                 type: "pdf",
-                src:"evidence/documents/June_Harper_Dispatch_Call_and_Supplementary_Report.pdf"
+                src: "evidence/documents/June_Harper_Dispatch_Call_and_Supplementary_Report.pdf"
             },
 
             {
                 name: "Interview Transcript - ATHENA",
-                description: "Official transcript of interview of Athena Liu",
+                description: "Official transcript of interview of Athena Liu.",
                 type: "pdf",
-                src:"evidence/documents/Athena_Liu_Interview.pdf"
+                src: "evidence/documents/Athena_Liu_Interview.pdf"
             },
 
             {
                 name: "Interview Transcript - DANIELLE",
-                description: "Official transcript of interview of Danielle Karsh",
+                description: "Official transcript of interview of Danielle Karsh.",
                 type: "pdf",
-                src:"evidence/documents/Danielle_Karsh_Interview.pdf"
+                src: "evidence/documents/Danielle_Karsh_Interview.pdf"
             },
 
             {
                 name: "Interview Transcript - MARCIE",
-                description: "Official transcript of interview of Marcie Evans",
+                description: "Official transcript of interview of Marcie Evans.",
                 type: "pdf",
-                src:"evidence/documents/Marcie_Evans_Interview.pdf"
+                src: "evidence/documents/Marcie_Evans_Interview.pdf"
+            },
+
+            {
+                name: "Supplementary Investigation Report — Final Findings",
+                description: "Additional findings concerning an unidentified visitor at June Harper's residence.",
+                type: "pdf",
+                src: "evidence/documents/June_Harper_Supplementary_Investigation_Report.pdf"
             }
 
         ]
@@ -185,6 +351,13 @@ const categories = {
                 description: "Recovered private conversation dated 20 May 2026.",
                 type: "image",
                 src: "evidence/images/Danielle Messages.PNG"
+            },
+
+            {
+                name: "Marcie Evans & Her Brother",
+                description: "Recovered message exchange concerning the retrieval of an annotated manuscript.",
+                type: "pdf",
+                src: "evidence/documents/June_Harper_Recovered_Message_Marcie_and_Brother.pdf"
             }
 
         ]
@@ -199,14 +372,11 @@ const categories = {
 
 let previousCategory = null;
 
-
 function openSection(category) {
 
     const data = categories[category];
 
-    if (!data) {
-        return;
-    }
+    if (!data) return;
 
     previousCategory = category;
 
@@ -223,17 +393,14 @@ function openSection(category) {
     document.getElementById("page-description").textContent =
         data.description;
 
-
     const fileList = document.getElementById("file-list");
 
     fileList.innerHTML = "";
-
 
     data.files.forEach((file, index) => {
 
         const item = document.createElement("div");
         item.className = "file-item";
-
 
         const details = document.createElement("div");
 
@@ -242,7 +409,6 @@ function openSection(category) {
 
         const description = document.createElement("p");
         description.textContent = file.description;
-
 
         const button = document.createElement("button");
 
@@ -253,7 +419,6 @@ function openSection(category) {
             openFile(category, index);
         };
 
-
         details.appendChild(title);
         details.appendChild(description);
 
@@ -263,7 +428,6 @@ function openSection(category) {
         fileList.appendChild(item);
 
     });
-
 
     window.scrollTo(0, 0);
 
@@ -306,7 +470,6 @@ function backToFiles() {
 let galleryIndex = 0;
 let currentGallery = [];
 
-
 function openFile(category, index) {
 
     const file = categories[category].files[index];
@@ -322,7 +485,6 @@ function openFile(category, index) {
 
     document.getElementById("viewer-description").textContent =
         file.description;
-
 
     const content = document.getElementById("evidence-content");
 
@@ -360,20 +522,44 @@ function openFile(category, index) {
     }
 
 
-    // PDF FILE
+    // PDF FILE — MOBILE FRIENDLY
 
     else if (file.type === "pdf") {
 
-        const pdf = document.createElement("iframe");
+        const openLink = document.createElement("a");
 
-        pdf.src = file.src;
-        pdf.className = "evidence-pdf";
-        pdf.title = file.name;
+        openLink.href = file.src;
+        openLink.target = "_blank";
+        openLink.rel = "noopener noreferrer";
+        openLink.className = "pdf-open-link";
+        openLink.textContent = "OPEN PDF IN NEW TAB ↗";
 
-        content.appendChild(pdf);
+        content.appendChild(openLink);
+
+        const note = document.createElement("p");
+
+        note.className = "pdf-mobile-note";
+        note.textContent =
+            "For the best reading experience on a phone, open this document in a new browser tab. You can scroll and zoom there.";
+
+        content.appendChild(note);
+
+        // Use embedded viewer on larger screens.
+        // Phones use the separate PDF tab instead.
+
+        if (window.innerWidth > 700) {
+
+            const pdf = document.createElement("iframe");
+
+            pdf.src = file.src;
+            pdf.className = "evidence-pdf";
+            pdf.title = file.name;
+
+            content.appendChild(pdf);
+
+        }
 
     }
-
 
     window.scrollTo(0, 0);
 
@@ -392,9 +578,6 @@ function showGalleryItem() {
 
     content.innerHTML = "";
 
-
-    // IMAGE
-
     const image = document.createElement("img");
 
     image.src = item.src;
@@ -405,62 +588,43 @@ function showGalleryItem() {
         showMissingFile(item.src);
     };
 
-
-    // CAPTION
-
     const caption = document.createElement("p");
 
     caption.className = "gallery-caption";
     caption.textContent = item.caption;
 
-
-    // GALLERY CONTROLS
-
     const controls = document.createElement("div");
 
     controls.className = "gallery-controls";
-
-
-    // PREVIOUS BUTTON
 
     const previous = document.createElement("button");
 
     previous.textContent = "← PREVIOUS";
     previous.className = "gallery-button";
-
     previous.disabled = galleryIndex === 0;
 
     previous.onclick = function () {
         changeGallery(-1);
     };
 
-
-    // IMAGE COUNTER
-
     const counter = document.createElement("span");
 
     counter.textContent =
         `${galleryIndex + 1} / ${currentGallery.length}`;
 
-
-    // NEXT BUTTON
-
     const next = document.createElement("button");
 
     next.textContent = "NEXT →";
     next.className = "gallery-button";
-
     next.disabled = galleryIndex === currentGallery.length - 1;
 
     next.onclick = function () {
         changeGallery(1);
     };
 
-
     controls.appendChild(previous);
     controls.appendChild(counter);
     controls.appendChild(next);
-
 
     content.appendChild(image);
     content.appendChild(caption);
@@ -501,14 +665,18 @@ function showMissingFile(path) {
     content.innerHTML = `
         <div class="evidence-text">
             <strong>FILE COULD NOT BE LOADED</strong>
-
-            The system could not locate this evidence file:
-
-            ${path}
-
-            Please check that the file exists and that its name
-            matches the path in script.js.
+            <p>The system could not locate this evidence file:</p>
+            <p>${path}</p>
+            <p>Please check that the file exists and that its name
+            matches the path in script.js.</p>
         </div>
     `;
 
 }
+
+
+// ==========================================
+// START DATABASE
+// ==========================================
+
+setupPasswordGate();
