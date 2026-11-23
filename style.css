@@ -459,3 +459,35 @@ footer {
         flex-direction: column;
     }
 }
+
+
+.final-access {
+    text-align: center;
+    padding: 45px 20px;
+    margin: 40px auto;
+    border-top: 1px solid #333;
+}
+
+.final-access p {
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    color: #888;
+}
+
+.final-access a {
+    display: inline-block;
+    padding: 15px 25px;
+    border: 1px solid #9b4444;
+    color: #9b4444;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.final-access a:hover {
+    background: #9b4444;
+    color: white;
+}
+
