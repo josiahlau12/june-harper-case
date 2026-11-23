@@ -209,14 +209,14 @@ const categories = {
                 name: "Athena Liu — Identification Photograph",
                 description: "Photographic identification record of Athena Liu.",
                 type: "image",
-                src: "evidence/images/athena-photo.png"
+                src: "evidence/images/Athena MS.PNG"
             },
 
             {
                 name: "Marcie Evans' Brother — Identification Photograph",
                 description: "Photographic identification record of an individual connected to Marcie Evans.",
                 type: "image",
-                src: "evidence/images/brother-photo.png"
+                src: "evidence/images/Marcie Brother MS.PNG"
             }
 
         ]
