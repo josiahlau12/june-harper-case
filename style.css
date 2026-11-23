@@ -461,33 +461,125 @@ footer {
 }
 
 
+
 .final-access {
-    text-align: center;
-    padding: 45px 20px;
-    margin: 40px auto;
-    border-top: 1px solid #333;
+    max-width: 850px;
+    margin: 65px auto;
+    padding: 20px;
 }
 
-.final-access p {
-    font-size: 11px;
-    letter-spacing: 3px;
-    margin-bottom: 20px;
-    color: #888;
+.final-panel {
+    background: #141519;
+    color: #eee;
+    border: 1px solid #38383d;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.2);
 }
 
-.final-access a {
-    display: inline-block;
-    padding: 15px 25px;
-    border: 1px solid #9b4444;
-    color: #9b4444;
-    text-decoration: none;
-    font-size: 12px;
+.final-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
     letter-spacing: 2px;
-    transition: 0.3s;
+    color: #999;
 }
 
-.final-access a:hover {
-    background: #9b4444;
+.final-tag {
+    color: #c36a6a;
+    border: 1px solid #814444;
+    padding: 6px 9px;
+}
+
+.final-divider {
+    height: 1px;
+    background: #39393d;
+    margin: 22px 0 35px;
+}
+
+.final-panel h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(27px, 5vw, 40px);
+    line-height: 1.2;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #f0ede8;
+}
+
+.final-description {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.9;
+    color: #aaa;
+    max-width: 550px;
+    margin-bottom: 30px;
+}
+
+.final-box {
+    border: 1px solid #704040;
+    background: #1c1b1e;
+    padding: 25px;
+}
+
+.final-reference {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #c36a6a;
+    margin-bottom: 18px;
+}
+
+.final-box h3 {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #eee;
+    margin-bottom: 10px;
+}
+
+.final-box p:not(.final-reference) {
+    font-family: Arial, sans-serif;
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 22px;
+}
+
+.final-box a {
+    display: block;
+    text-align: center;
+    background: #963f3f;
     color: white;
+    padding: 16px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: 0.25s;
+}
+
+.final-box a:hover {
+    background: #b84b4b;
+}
+
+.final-footer {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #666;
+    margin-top: 25px;
+}
+
+@media(max-width: 600px) {
+    .final-panel {
+        padding: 25px 20px;
+    }
+
+    .final-top {
+        font-size: 8px;
+    }
 }
 
