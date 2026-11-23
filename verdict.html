@@ -1,1 +1,460 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The June Harper Case | Final Verdict</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #101114;
+    color: #e8e6e2;
+    font-family: Georgia, serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    background: #17181c;
+    border: 1px solid #39393d;
+    padding: 40px;
+    box-shadow: 0 15px 60px #0008;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+
+.header span {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #999;
+}
+
+.restricted {
+    color: #bd5555 !important;
+}
+
+.eyebrow {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+h1 {
+    text-align: center;
+    font-size: clamp(30px, 7vw, 48px);
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+h1 span {
+    color: #b84b4b;
+}
+
+.subtitle {
+    text-align: center;
+    color: #999;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 20px 0 35px;
+}
+
+.divider {
+    height: 1px;
+    background: #39393d;
+    margin: 25px 0;
+}
+
+.section-title {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #b84b4b;
+    margin-bottom: 18px;
+}
+
+.suspect {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 15px;
+    background: #202126;
+    border: 1px solid #34353a;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.suspect:hover {
+    border-color: #a84a4a;
+    background: #272126;
+}
+
+.suspect input {
+    accent-color: #b84b4b;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.suspect span {
+    font-size: 16px;
+}
+
+.note {
+    color: #777;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 18px;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    background: #963f3f;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #b34c4c;
+}
+
+button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.secondary {
+    background: transparent;
+    border: 1px solid #555;
+    color: #ccc;
+}
+
+.secondary:hover {
+    background: #292a2e;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+.result-title {
+    text-align: center;
+    font-size: 32px;
+    margin: 25px 0;
+}
+
+.result-text {
+    text-align: center;
+    color: #aaa;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+.selected-list {
+    background: #202126;
+    border: 1px solid #39393d;
+    padding: 20px;
+    margin-top: 25px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.footer {
+    border-top: 1px solid #39393d;
+    margin-top: 40px;
+    padding-top: 18px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #666;
+}
+
+@media(max-width: 500px) {
+    .container {
+        padding: 25px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <span>JH // CASE ARCHIVE</span>
+        <span class="restricted">RESTRICTED</span>
+    </div>
+
+    <!-- SCREEN 1: ACCUSATION -->
+
+    <section id="accusation" class="screen active">
+
+        <p class="eyebrow">THE FINAL INVESTIGATION</p>
+
+        <h1>WHO KILLED<br><span>JUNE HARPER?</span></h1>
+
+        <p class="subtitle">
+            The evidence has been reviewed.<br>
+            The investigation is nearing its end.<br>
+            It is time to make your accusation.
+        </p>
+
+        <div class="divider"></div>
+
+        <p class="section-title">SELECT YOUR SUSPECTS</p>
+
+        <label class="suspect">
+            <input type="checkbox" value="Athena Liu">
+            <span>Athena Liu</span>
+        </label>
+
+        <label class="suspect">
+            <input type="checkbox" value="Marcie Evans">
+            <span>Marcie Evans</span>
+        </label>
+
+        <label class="suspect">
+            <input type="checkbox" value="Danielle Karsh">
+            <span>Danielle Karsh</span>
+        </label>
+
+        <label class="suspect">
+            <input type="checkbox" value="Marcie's brother">
+            <span>Marcie's Brother</span>
+        </label>
+
+        <p class="note">
+            You may select one or multiple individuals.
+            Consider every piece of evidence before submitting.
+        </p>
+
+        <button id="submitBtn" onclick="submitAccusation()" disabled>
+            SUBMIT FINAL ACCUSATION →
+        </button>
+
+    </section>
+
+
+    <!-- SCREEN 2: SUBMISSION -->
+
+    <section id="confirmation" class="screen">
+
+        <p class="eyebrow">JH // FINAL SUBMISSION</p>
+
+        <h1>ACCUSATION<br><span>RECEIVED.</span></h1>
+
+        <p class="result-text">
+            Your group's conclusion has been recorded.<br>
+            Present your accusation to the game host.
+        </p>
+
+        <div class="selected-list" id="selectedList"></div>
+
+        <div class="divider"></div>
+
+        <p class="section-title">AWAITING VERDICT</p>
+
+        <p class="result-text">
+            The game host will tell you whether your
+            conclusion is correct.
+        </p>
+
+        <button onclick="correctEnding()">
+            OUR ACCUSATION IS CORRECT
+        </button>
+
+        <button class="secondary" onclick="incorrectEnding()">
+            OUR ACCUSATION IS INCORRECT
+        </button>
+
+    </section>
+
+
+    <!-- SCREEN 3: TRY AGAIN -->
+
+    <section id="retry" class="screen">
+
+        <p class="eyebrow">INVESTIGATION CONTINUES</p>
+
+        <h1>CASE<br><span>UNRESOLVED.</span></h1>
+
+        <p class="result-text">
+            Your conclusion does not match the evidence.<br><br>
+            However, you have one final opportunity
+            to uncover the truth.
+        </p>
+
+        <div class="divider"></div>
+
+        <p class="section-title">FINAL ATTEMPT</p>
+
+        <button onclick="secondAttempt()">
+            REOPEN INVESTIGATION →
+        </button>
+
+    </section>
+
+
+    <!-- SCREEN 4: WIN -->
+
+    <section id="success" class="screen">
+
+        <p class="eyebrow">INVESTIGATION COMPLETE</p>
+
+        <h1>THE TRUTH<br><span>HAS BEEN FOUND.</span></h1>
+
+        <p class="result-title">CASE CLOSED.</p>
+
+        <p class="result-text">
+            After careful examination of the evidence,
+            your group successfully uncovered the truth
+            behind June Harper's death.<br><br>
+            Congratulations, investigators.
+        </p>
+
+        <div class="divider"></div>
+
+        <p class="eyebrow">THANK YOU FOR PLAYING</p>
+
+    </section>
+
+
+    <!-- SCREEN 5: UNSOLVED -->
+
+    <section id="unsolved" class="screen">
+
+        <p class="eyebrow">INVESTIGATION TERMINATED</p>
+
+        <h1>THE MYSTERY<br><span>REMAINS UNSOLVED.</span></h1>
+
+        <p class="result-text">
+            Despite the available evidence,
+            the truth remains undiscovered.<br><br>
+            Some mysteries are never solved.
+        </p>
+
+        <div class="divider"></div>
+
+        <p class="result-title">CASE CLOSED.</p>
+
+        <p class="eyebrow">THANK YOU FOR PLAYING</p>
+
+    </section>
+
+
+    <div class="footer">
+        JUNE HARPER // 20 MAY 2026
+    </div>
+
+</div>
+
+
+<script>
+let attempts = 1;
+
+function showScreen(id) {
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+}
+
+const checkboxes = document.querySelectorAll(
+    'input[type="checkbox"]'
+);
+
+const submitBtn = document.getElementById("submitBtn");
+
+checkboxes.forEach(box => {
+    box.addEventListener("change", () => {
+        submitBtn.disabled =
+            !Array.from(checkboxes).some(item => item.checked);
+    });
+});
+
+function submitAccusation() {
+    const selected = Array.from(checkboxes)
+        .filter(box => box.checked)
+        .map(box => box.value);
+
+    if (selected.length === 0) return;
+
+    document.getElementById("selectedList").innerHTML =
+        "<strong>YOUR SELECTED SUSPECTS</strong><br><br>" +
+        selected.map(name => "— " + name).join("<br>");
+
+    showScreen("confirmation");
+}
+
+function correctEnding() {
+    showScreen("success");
+}
+
+function incorrectEnding() {
+    if (attempts === 1) {
+        showScreen("retry");
+    } else {
+        showScreen("unsolved");
+    }
+}
+
+function secondAttempt() {
+    attempts = 2;
+
+    checkboxes.forEach(box => {
+        box.checked = false;
+    });
+
+    submitBtn.disabled = true;
+
+    showScreen("accusation");
+}
+</script>
+
+</body>
+</html>
+
