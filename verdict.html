@@ -423,13 +423,20 @@ function submitAccusation() {
 
     if (selected.length === 0) return;
 
-    document.getElementById("selectedList").innerHTML =
-        "<strong>YOUR SELECTED SUSPECTS</strong><br><br>" +
-        selected.map(name => "— " + name).join("<br>");
+   const correctAnswer =
+    selected.length === 1 &&
+    selected.includes("Athena Liu");
 
-    showScreen("confirmation");
+    if (correctAnswer) {
+        showScreen("success");
+    } 
+    else if (attempts === 1) {
+        showScreen("retry");
+    } 
+    else {
+        showScreen("unsolved");
+    }
 }
-
 function correctEnding() {
     showScreen("success");
 }
